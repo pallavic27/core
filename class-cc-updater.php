@@ -5,7 +5,7 @@ if(!class_exists('CC_Updater')) :
 
 	class CC_Updater {
 		
-	public $auth_url = 'http://club.wpeka.com/club_api/';
+	public $url = 'https://cyberchimps.com/verify_user.php';
 	public $username;
 	public $password;
 		
@@ -31,8 +31,7 @@ if(!class_exists('CC_Updater')) :
 				'body'			=> $api_values
 		);
 			
-		$url = 'https://cyberchimps.com/verify_user.php';
-		//$url = 'http://localhost/wordpress_4.1.1/verify_user.php';
+		$url = $this->url;		
 		$responseFromvalidateUser = wp_remote_post($url, $options);
 		
 		if ( ! is_wp_error( $responseFromvalidateUser ) && wp_remote_retrieve_response_code( $responseFromvalidateUser ) == 200 ){
